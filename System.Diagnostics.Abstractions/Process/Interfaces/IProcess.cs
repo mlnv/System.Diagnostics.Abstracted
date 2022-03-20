@@ -2,7 +2,7 @@
 using System.IO;
 using Microsoft.Win32.SafeHandles;
 
-namespace System.Diagnostics.Abstractions
+namespace System.Diagnostics.Abstracted
 {
     public interface IProcess : IDisposable
     {

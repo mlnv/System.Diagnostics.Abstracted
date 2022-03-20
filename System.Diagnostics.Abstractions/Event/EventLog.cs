@@ -1,7 +1,7 @@
 ﻿#if NET40
 using System.ComponentModel;
 
-namespace System.Diagnostics.Abstractions
+namespace System.Diagnostics.Abstracted
 {
     public class EventLog : IEventLog
     {

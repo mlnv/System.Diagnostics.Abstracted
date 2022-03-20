@@ -1,4 +1,4 @@
-﻿namespace System.Diagnostics.Abstractions
+﻿namespace System.Diagnostics.Abstracted
 {
     public interface IStopwatch
     {
