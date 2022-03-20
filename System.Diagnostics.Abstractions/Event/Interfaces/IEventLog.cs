@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Runtime.Versioning;
 using System.Security.Permissions;
 
-namespace System.Diagnostics.Abstractions
+namespace System.Diagnostics.Abstracted
 {
     public interface IEventLog
     {
