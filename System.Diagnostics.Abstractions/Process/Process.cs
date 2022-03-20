@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security;
 using Microsoft.Win32.SafeHandles;
 
-namespace System.Diagnostics.Abstractions
+namespace System.Diagnostics.Abstracted
 {
     public class Process : IProcess
     {
