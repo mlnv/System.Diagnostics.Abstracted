@@ -1,4 +1,4 @@
-name: nuget-build-deploy
+name: Continuous Integration
 
 on:
   push:
