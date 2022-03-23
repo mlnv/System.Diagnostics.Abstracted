@@ -54,13 +54,13 @@ jobs:
     - name: Run Tests
       run: dotnet test System.Diagnostics.Abstracted.sln --configuration Release /p:Version=${{ steps.gitversion.outputs.AssemblySemVer }} --no-build --verbosity normal
 
-    - name: Create packages
+    - name: Create package
       run: dotnet pack --configuration Release --output ./packages /p:Version=${{ steps.gitversion.outputs.NuGetVersion }}
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3
       with:
-        name: NuGet packages
+        name: NuGet package
         path: packages/*.*
         
 #     - name: Push generated package to GitHub registry
