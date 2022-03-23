@@ -81,7 +81,7 @@ jobs:
           uses: actions/setup-dotnet@v2
           
         - name: Build 
-          run: dotnet build System.Diagnostics.Abstracted.sln --configuration Release /p:Version=${{ steps.gitversion.outputs.AssemblySemVer }} /p:AssemblyVersion=${{ steps.gitversion.outputs.AssemblySemVer }} /p:InformationalVersion=${{ steps.gitversion.outputs.InformationalVersion }} --no-restore
+          run: dotnet build System.Diagnostics.Abstracted.sln --configuration Release /p:Version=${{ steps.gitversion.outputs.AssemblySemVer }} /p:AssemblyVersion=${{ steps.gitversion.outputs.AssemblySemVer }} /p:InformationalVersion=${{ steps.gitversion.outputs.InformationalVersion }}
           
         - name: Create packages
           run: dotnet pack --configuration Release --output ./packages
