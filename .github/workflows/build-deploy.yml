@@ -48,7 +48,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
       
-    - name: Build dotnet 
+    - name: Build 
       run: dotnet build System.Diagnostics.Abstracted.sln --configuration Release /p:Version=${{ steps.gitversion.outputs.AssemblySemVer }} /p:AssemblyVersion=${{ steps.gitversion.outputs.AssemblySemVer }} /p:InformationalVersion=${{ steps.gitversion.outputs.InformationalVersion }} --no-restore
 
   test:
@@ -79,6 +79,9 @@ jobs:
             
         - name: Setup .NET
           uses: actions/setup-dotnet@v2
+          
+        - name: Build 
+          run: dotnet build System.Diagnostics.Abstracted.sln --configuration Release /p:Version=${{ steps.gitversion.outputs.AssemblySemVer }} /p:AssemblyVersion=${{ steps.gitversion.outputs.AssemblySemVer }} /p:InformationalVersion=${{ steps.gitversion.outputs.InformationalVersion }} --no-restore
           
         - name: Create packages
           run: dotnet pack --configuration Release --output ./packages
