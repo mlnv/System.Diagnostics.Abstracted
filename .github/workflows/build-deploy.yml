@@ -49,7 +49,7 @@ jobs:
       run: dotnet restore
       
     - name: Build dotnet 
-      run: dotnet build System.Diagnostics.Abstracted.sln --configuration release /p:Version=${{ steps.gitversion.outputs.AssemblySemVer }} /p:AssemblyVersion=${{ steps.gitversion.outputs.AssemblySemVer }} /p:InformationalVersion=${{ steps.gitversion.outputs.InformationalVersion }} --no-restore
+      run: dotnet build System.Diagnostics.Abstracted.sln --configuration Release /p:Version=${{ steps.gitversion.outputs.AssemblySemVer }} /p:AssemblyVersion=${{ steps.gitversion.outputs.AssemblySemVer }} /p:InformationalVersion=${{ steps.gitversion.outputs.InformationalVersion }} --no-restore
 
   test:
         name: Test
