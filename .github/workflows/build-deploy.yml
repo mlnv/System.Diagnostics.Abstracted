@@ -50,12 +50,58 @@ jobs:
       
     - name: Build dotnet 
       run: dotnet build System.Diagnostics.Abstracted.sln --configuration release /p:Version=${{ steps.gitversion.outputs.AssemblySemVer }} /p:AssemblyVersion=${{ steps.gitversion.outputs.AssemblySemVer }} /p:InformationalVersion=${{ steps.gitversion.outputs.InformationalVersion }} --no-restore
-      
-    - name: Run Tests
-      run: dotnet test System.Diagnostics.Abstracted.sln --configuration Release /p:Version=${{ steps.gitversion.outputs.AssemblySemVer }} --no-build --verbosity normal
-      
-    - name: Package nuget
-      run: dotnet pack System.Diagnostics.Abstracted.sln --configuration release -o:package /p:PackageVersion=${{ steps.gitversion.outputs.AssemblySemVer }}
+
+  test:
+        name: Test
+        needs: [build]
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout sources
+            uses: actions/checkout@v3
+            with:
+              fetch-depth: 0
+              
+          - name: Setup .NET
+            uses: actions/setup-dotnet@v2
+            
+          - name: Run Tests
+            run: dotnet test System.Diagnostics.Abstracted.sln --configuration Release /p:Version=${{ steps.gitversion.outputs.AssemblySemVer }} --no-build --verbosity normal
+
+  pack:
+      name: Pack
+      needs: [test]
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout sources
+          uses: actions/checkout@v3
+          with:
+            fetch-depth: 0
+            
+        - name: Setup .NET
+          uses: actions/setup-dotnet@v2
+          
+        - name: Create packages
+          run: dotnet pack --configuration Release --output ./packages
+          
+        - name: Upload a Build Artifact
+          uses: actions/upload-artifact@v3
+          with:
+            name: NuGet packages
+            path: packages/*.*
+            
+  deploy:
+    name: Deploy
+    needs: [pack]
+    if: (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/develop') && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
 
 #    - name: Push generated package to GitHub registry
 #      run: dotnet nuget push ./package/*.nupkg  --source "https://nuget.pkg.github.com/threenine/index.json"  --api-key ${{ github.token }}
