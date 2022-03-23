@@ -55,7 +55,7 @@ jobs:
       run: dotnet test System.Diagnostics.Abstracted.sln --configuration Release /p:Version=${{ steps.gitversion.outputs.AssemblySemVer }} --no-build --verbosity normal
 
     - name: Create packages
-      run: dotnet pack --configuration Release --output ./packages
+      run: dotnet pack --configuration Release --output ./packages /p:Version=${{ steps.gitversion.outputs.NuGetVersion }}
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3
