@@ -7,12 +7,14 @@ on:
       - develop
       - release/*
       - feature/*
+      - bugfix/*
   pull_request:
     branches: 
       - master
       - develop
       - release/*
       - feature/*
+      - bugfix/*
       
 env:
   # Stop wasting time caching packages
