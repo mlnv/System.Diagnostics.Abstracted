@@ -49,6 +49,18 @@ branches:
     is-release-branch: false
     is-mainline: false
     pre-release-weight: 30000
+  bugfix:
+    regex: ^bugfix?[/-]
+    mode: ContinuousDeployment
+    tag: alpha
+    increment: Inherit
+    prevent-increment-of-merged-branch-version: false
+    track-merge-target: false
+    source-branches: [ 'develop', 'main', 'release', 'feature', 'support', 'hotfix' ]
+    tracks-release-branches: false
+    is-release-branch: false
+    is-mainline: false
+    pre-release-weight: 30000
   pull-request:
     regex: ^(pull|pull\-requests|pr)[/-]
     mode: ContinuousDelivery
