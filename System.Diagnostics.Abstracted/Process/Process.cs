@@ -151,8 +151,9 @@ namespace System.Diagnostics.Abstracted
 
         /// <inheritdoc />
         public bool Responding => inner.Responding;
+
 #if NETSTANDARD2_0
-/// <inheritdoc />
+        /// <inheritdoc />
         public SafeProcessHandle SafeHandle => inner.SafeHandle;
 #endif
         /// <inheritdoc />

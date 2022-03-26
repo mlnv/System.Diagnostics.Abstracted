@@ -588,8 +588,8 @@ namespace System.Diagnostics.Abstracted
         bool Responding { get; }
 
 #if NETSTANDARD2_0
-/// <summary>Gets the native handle to this process.</summary>
-/// <returns>The native handle to this process.</returns>
+        /// <summary>Gets the native handle to this process.</summary>
+        /// <returns>The native handle to this process.</returns>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         SafeProcessHandle SafeHandle { get; }
