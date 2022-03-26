@@ -2,7 +2,7 @@
 {
     public class Stopwatch : IStopwatch
     {
-        private readonly System.Diagnostics.Stopwatch _inner;
+        private readonly System.Diagnostics.Stopwatch inner;
 
         public Stopwatch() : this(new System.Diagnostics.Stopwatch())
         {
@@ -10,36 +10,36 @@
 
         protected internal Stopwatch(System.Diagnostics.Stopwatch inner)
         {
-            _inner = inner;
+            this.inner = inner;
         }
 
         public static long Frequency => System.Diagnostics.Stopwatch.Frequency;
 
         public static bool IsHighResolution => System.Diagnostics.Stopwatch.IsHighResolution;
 
-        public TimeSpan Elapsed => _inner.Elapsed;
-        public long ElapsedMilliseconds => _inner.ElapsedMilliseconds;
-        public long ElapsedTicks => _inner.ElapsedTicks;
-        public bool IsRunning => _inner.IsRunning;
+        public TimeSpan Elapsed => inner.Elapsed;
+        public long ElapsedMilliseconds => inner.ElapsedMilliseconds;
+        public long ElapsedTicks => inner.ElapsedTicks;
+        public bool IsRunning => inner.IsRunning;
 
         public void Reset()
         {
-            _inner.Reset();
+            inner.Reset();
         }
 
         public void Restart()
         {
-            _inner.Restart();
+            inner.Restart();
         }
 
         public void Start()
         {
-            _inner.Start();
+            inner.Start();
         }
 
         public void Stop()
         {
-            _inner.Stop();
+            inner.Stop();
         }
 
         public static long GetTimestamp()

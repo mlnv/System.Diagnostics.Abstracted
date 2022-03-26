@@ -8,202 +8,202 @@ namespace System.Diagnostics.Abstracted
 {
     public class Process : IProcess
     {
-        private readonly System.Diagnostics.Process _inner;
+        private readonly System.Diagnostics.Process inner;
 
         public Process(System.Diagnostics.Process inner)
         {
-            _inner = inner;
-            _inner.ErrorDataReceived += OnErrorDataReceived;
-            _inner.Exited += OnExited;
-            _inner.OutputDataReceived += OnOutputDataReceived;
+            this.inner = inner;
+            this.inner.ErrorDataReceived += OnErrorDataReceived;
+            this.inner.Exited += OnExited;
+            this.inner.OutputDataReceived += OnOutputDataReceived;
         }
 
         /// <inheritdoc />
         public void Dispose()
         {
-            _inner.Dispose();
+            inner.Dispose();
         }
 
         /// <inheritdoc />
-        public int BasePriority => _inner.BasePriority;
+        public int BasePriority => inner.BasePriority;
 
         /// <inheritdoc />
         public bool EnableRaisingEvents
         {
-            get => _inner.EnableRaisingEvents;
-            set => _inner.EnableRaisingEvents = value;
+            get => inner.EnableRaisingEvents;
+            set => inner.EnableRaisingEvents = value;
         }
 
         /// <inheritdoc />
-        public int ExitCode => _inner.ExitCode;
+        public int ExitCode => inner.ExitCode;
 
         /// <inheritdoc />
-        public DateTime ExitTime => _inner.ExitTime;
+        public DateTime ExitTime => inner.ExitTime;
 
         /// <inheritdoc />
-        public IntPtr Handle => _inner.Handle;
+        public IntPtr Handle => inner.Handle;
 
         /// <inheritdoc />
-        public int HandleCount => _inner.HandleCount;
+        public int HandleCount => inner.HandleCount;
 
         /// <inheritdoc />
-        public bool HasExited => _inner.HasExited;
+        public bool HasExited => inner.HasExited;
 
         /// <inheritdoc />
-        public int Id => _inner.Id;
+        public int Id => inner.Id;
 
         /// <inheritdoc />
-        public string MachineName => _inner.MachineName;
+        public string MachineName => inner.MachineName;
 
         /// <inheritdoc />
-        public ProcessModule MainModule => _inner.MainModule;
+        public ProcessModule MainModule => inner.MainModule;
 
         /// <inheritdoc />
-        public IntPtr MainWindowHandle => _inner.MainWindowHandle;
+        public IntPtr MainWindowHandle => inner.MainWindowHandle;
 
         /// <inheritdoc />
-        public string MainWindowTitle => _inner.MainWindowTitle;
+        public string MainWindowTitle => inner.MainWindowTitle;
 
         /// <inheritdoc />
         public IntPtr MaxWorkingSet
         {
-            get => _inner.MaxWorkingSet;
-            set => _inner.MaxWorkingSet = value;
+            get => inner.MaxWorkingSet;
+            set => inner.MaxWorkingSet = value;
         }
 
         public IntPtr MinWorkingSet
         {
-            get => _inner.MinWorkingSet;
-            set => _inner.MinWorkingSet = value;
+            get => inner.MinWorkingSet;
+            set => inner.MinWorkingSet = value;
         }
 
         /// <inheritdoc />
-        public ProcessModuleCollection Modules => _inner.Modules;
+        public ProcessModuleCollection Modules => inner.Modules;
 
         /// <inheritdoc />
-        public int NonpagedSystemMemorySize => _inner.NonpagedSystemMemorySize;
+        public int NonpagedSystemMemorySize => inner.NonpagedSystemMemorySize;
 
         /// <inheritdoc />
-        public long NonpagedSystemMemorySize64 => _inner.NonpagedSystemMemorySize64;
+        public long NonpagedSystemMemorySize64 => inner.NonpagedSystemMemorySize64;
 
         /// <inheritdoc />
-        public int PagedMemorySize => _inner.PagedMemorySize;
+        public int PagedMemorySize => inner.PagedMemorySize;
 
         /// <inheritdoc />
-        public long PagedMemorySize64 => _inner.PagedMemorySize64;
+        public long PagedMemorySize64 => inner.PagedMemorySize64;
 
         /// <inheritdoc />
-        public int PagedSystemMemorySize => _inner.PagedSystemMemorySize;
+        public int PagedSystemMemorySize => inner.PagedSystemMemorySize;
 
         /// <inheritdoc />
-        public long PagedSystemMemorySize64 => _inner.PagedSystemMemorySize64;
+        public long PagedSystemMemorySize64 => inner.PagedSystemMemorySize64;
 
         /// <inheritdoc />
-        public int PeakPagedMemorySize => _inner.PeakPagedMemorySize;
+        public int PeakPagedMemorySize => inner.PeakPagedMemorySize;
 
         /// <inheritdoc />
-        public long PeakPagedMemorySize64 => _inner.PeakPagedMemorySize64;
+        public long PeakPagedMemorySize64 => inner.PeakPagedMemorySize64;
 
         /// <inheritdoc />
-        public int PeakVirtualMemorySize => _inner.PeakVirtualMemorySize;
+        public int PeakVirtualMemorySize => inner.PeakVirtualMemorySize;
 
         /// <inheritdoc />
-        public long PeakVirtualMemorySize64 => _inner.PeakVirtualMemorySize64;
+        public long PeakVirtualMemorySize64 => inner.PeakVirtualMemorySize64;
 
         /// <inheritdoc />
-        public int PeakWorkingSet => _inner.PeakWorkingSet;
+        public int PeakWorkingSet => inner.PeakWorkingSet;
 
         /// <inheritdoc />
-        public long PeakWorkingSet64 => _inner.PeakWorkingSet64;
+        public long PeakWorkingSet64 => inner.PeakWorkingSet64;
 
         /// <inheritdoc />
         public bool PriorityBoostEnabled
         {
-            get => _inner.EnableRaisingEvents;
-            set => _inner.EnableRaisingEvents = value;
+            get => inner.EnableRaisingEvents;
+            set => inner.EnableRaisingEvents = value;
         }
 
         /// <inheritdoc />
         public ProcessPriorityClass PriorityClass
         {
-            get => _inner.PriorityClass;
-            set => _inner.PriorityClass = value;
+            get => inner.PriorityClass;
+            set => inner.PriorityClass = value;
         }
 
         /// <inheritdoc />
-        public int PrivateMemorySize => _inner.PrivateMemorySize;
+        public int PrivateMemorySize => inner.PrivateMemorySize;
 
         /// <inheritdoc />
-        public long PrivateMemorySize64 => _inner.PrivateMemorySize64;
+        public long PrivateMemorySize64 => inner.PrivateMemorySize64;
 
         /// <inheritdoc />
-        public TimeSpan PrivilegedProcessorTime => _inner.PrivilegedProcessorTime;
+        public TimeSpan PrivilegedProcessorTime => inner.PrivilegedProcessorTime;
 
         /// <inheritdoc />
-        public string ProcessName => _inner.ProcessName;
+        public string ProcessName => inner.ProcessName;
 
         /// <inheritdoc />
         public IntPtr ProcessorAffinity
         {
-            get => _inner.ProcessorAffinity;
-            set => _inner.ProcessorAffinity = value;
+            get => inner.ProcessorAffinity;
+            set => inner.ProcessorAffinity = value;
         }
 
         /// <inheritdoc />
-        public bool Responding => _inner.Responding;
+        public bool Responding => inner.Responding;
 #if NETSTANDARD2_0
 /// <inheritdoc />
-        public SafeProcessHandle SafeHandle => _inner.SafeHandle;
+        public SafeProcessHandle SafeHandle => inner.SafeHandle;
 #endif
         /// <inheritdoc />
-        public int SessionId => _inner.SessionId;
+        public int SessionId => inner.SessionId;
 
         /// <inheritdoc />
-        public StreamReader StandardError => _inner.StandardError;
+        public StreamReader StandardError => inner.StandardError;
 
         /// <inheritdoc />
-        public StreamWriter StandardInput => _inner.StandardInput;
+        public StreamWriter StandardInput => inner.StandardInput;
 
         /// <inheritdoc />
-        public StreamReader StandardOutput => _inner.StandardOutput;
+        public StreamReader StandardOutput => inner.StandardOutput;
 
         /// <inheritdoc />
         public ProcessStartInfo StartInfo
         {
-            get => _inner.StartInfo;
-            set => _inner.StartInfo = value;
+            get => inner.StartInfo;
+            set => inner.StartInfo = value;
         }
 
         /// <inheritdoc />
-        public DateTime StartTime => _inner.StartTime;
+        public DateTime StartTime => inner.StartTime;
 
         /// <inheritdoc />
         public ISynchronizeInvoke SynchronizingObject
         {
-            get => _inner.SynchronizingObject;
-            set => _inner.SynchronizingObject = value;
+            get => inner.SynchronizingObject;
+            set => inner.SynchronizingObject = value;
         }
 
         /// <inheritdoc />
-        public ProcessThreadCollection Threads => _inner.Threads;
+        public ProcessThreadCollection Threads => inner.Threads;
 
         /// <inheritdoc />
-        public TimeSpan TotalProcessorTime => _inner.TotalProcessorTime;
+        public TimeSpan TotalProcessorTime => inner.TotalProcessorTime;
 
         /// <inheritdoc />
-        public TimeSpan UserProcessorTime => _inner.UserProcessorTime;
+        public TimeSpan UserProcessorTime => inner.UserProcessorTime;
 
         /// <inheritdoc />
-        public int VirtualMemorySize => _inner.VirtualMemorySize;
+        public int VirtualMemorySize => inner.VirtualMemorySize;
 
         /// <inheritdoc />
-        public long VirtualMemorySize64 => _inner.VirtualMemorySize64;
+        public long VirtualMemorySize64 => inner.VirtualMemorySize64;
 
         /// <inheritdoc />
-        public int WorkingSet => _inner.WorkingSet;
+        public int WorkingSet => inner.WorkingSet;
 
         /// <inheritdoc />
-        public long WorkingSet64 => _inner.WorkingSet64;
+        public long WorkingSet64 => inner.WorkingSet64;
 
         /// <inheritdoc />
         public event DataReceivedEventHandler ErrorDataReceived;
@@ -232,79 +232,79 @@ namespace System.Diagnostics.Abstracted
         /// <inheritdoc />
         public void BeginErrorReadLine()
         {
-            _inner.BeginErrorReadLine();
+            inner.BeginErrorReadLine();
         }
 
         /// <inheritdoc />
         public void BeginOutputReadLine()
         {
-            _inner.BeginOutputReadLine();
+            inner.BeginOutputReadLine();
         }
 
         /// <inheritdoc />
         public void CancelErrorRead()
         {
-            _inner.CancelErrorRead();
+            inner.CancelErrorRead();
         }
 
         /// <inheritdoc />
         public void CancelOutputRead()
         {
-            _inner.CancelOutputRead();
+            inner.CancelOutputRead();
         }
 
         /// <inheritdoc />
         public void Close()
         {
-            _inner.Close();
+            inner.Close();
         }
 
         /// <inheritdoc />
         public bool CloseMainWindow()
         {
-            return _inner.CloseMainWindow();
+            return inner.CloseMainWindow();
         }
 
         /// <inheritdoc />
         public void Kill()
         {
-            _inner.Kill();
+            inner.Kill();
         }
 
         /// <inheritdoc />
         public void Refresh()
         {
-            _inner.Refresh();
+            inner.Refresh();
         }
 
         /// <inheritdoc />
         public bool Start()
         {
-            return _inner.Start();
+            return inner.Start();
         }
 
         /// <inheritdoc />
         public void WaitForExit()
         {
-            _inner.WaitForExit();
+            inner.WaitForExit();
         }
 
         /// <inheritdoc />
         public bool WaitForExit(int milliseconds)
         {
-            return _inner.WaitForExit(milliseconds);
+            return inner.WaitForExit(milliseconds);
         }
 
         /// <inheritdoc />
         public bool WaitForInputIdle()
         {
-            return _inner.WaitForInputIdle();
+            return inner.WaitForInputIdle();
         }
 
         /// <inheritdoc />
         public bool WaitForInputIdle(int milliseconds)
         {
-            return _inner.WaitForInputIdle(milliseconds);
+            return inner.WaitForInputIdle(milliseconds);
         }
 
         /// <summary>

@@ -2,93 +2,93 @@
 {
     public class FileVersionInfo : IFileVersionInfo
     {
-        private readonly System.Diagnostics.FileVersionInfo _inner;
+        private readonly System.Diagnostics.FileVersionInfo inner;
 
         /// <inheritdoc />
         protected internal FileVersionInfo(System.Diagnostics.FileVersionInfo inner)
         {
-            _inner = inner;
+            this.inner = inner;
         }
 
         /// <inheritdoc />
-        public string Comments => _inner.Comments;
+        public string Comments => inner.Comments;
 
         /// <inheritdoc />
-        public string CompanyName => _inner.CompanyName;
+        public string CompanyName => inner.CompanyName;
 
         /// <inheritdoc />
-        public int FileBuildPart => _inner.FileBuildPart;
+        public int FileBuildPart => inner.FileBuildPart;
 
         /// <inheritdoc />
-        public string FileDescription => _inner.FileDescription;
+        public string FileDescription => inner.FileDescription;
 
         /// <inheritdoc />
-        public int FileMajorPart => _inner.FileMajorPart;
+        public int FileMajorPart => inner.FileMajorPart;
 
         /// <inheritdoc />
-        public int FileMinorPart => _inner.FileMinorPart;
+        public int FileMinorPart => inner.FileMinorPart;
 
         /// <inheritdoc />
-        public string FileName => _inner.FileName;
+        public string FileName => inner.FileName;
 
         /// <inheritdoc />
-        public int FilePrivatePart => _inner.FilePrivatePart;
+        public int FilePrivatePart => inner.FilePrivatePart;
 
         /// <inheritdoc />
-        public string FileVersion => _inner.FileVersion;
+        public string FileVersion => inner.FileVersion;
 
         /// <inheritdoc />
-        public string InternalName => _inner.InternalName;
+        public string InternalName => inner.InternalName;
 
         /// <inheritdoc />
-        public bool IsDebug => _inner.IsDebug;
+        public bool IsDebug => inner.IsDebug;
 
         /// <inheritdoc />
-        public bool IsPatched => _inner.IsPatched;
+        public bool IsPatched => inner.IsPatched;
 
         /// <inheritdoc />
-        public bool IsPrivateBuild => _inner.IsPrivateBuild;
+        public bool IsPrivateBuild => inner.IsPrivateBuild;
 
         /// <inheritdoc />
-        public bool IsPreRelease => _inner.IsPreRelease;
+        public bool IsPreRelease => inner.IsPreRelease;
 
         /// <inheritdoc />
-        public bool IsSpecialBuild => _inner.IsSpecialBuild;
+        public bool IsSpecialBuild => inner.IsSpecialBuild;
 
         /// <inheritdoc />
-        public string Language => _inner.Language;
+        public string Language => inner.Language;
 
         /// <inheritdoc />
-        public string LegalCopyright => _inner.LegalCopyright;
+        public string LegalCopyright => inner.LegalCopyright;
 
         /// <inheritdoc />
-        public string LegalTrademarks => _inner.LegalTrademarks;
+        public string LegalTrademarks => inner.LegalTrademarks;
 
         /// <inheritdoc />
-        public string OriginalFilename => _inner.OriginalFilename;
+        public string OriginalFilename => inner.OriginalFilename;
 
         /// <inheritdoc />
-        public string PrivateBuild => _inner.PrivateBuild;
+        public string PrivateBuild => inner.PrivateBuild;
 
         /// <inheritdoc />
-        public int ProductBuildPart => _inner.ProductBuildPart;
+        public int ProductBuildPart => inner.ProductBuildPart;
 
         /// <inheritdoc />
-        public int ProductMajorPart => _inner.ProductMajorPart;
+        public int ProductMajorPart => inner.ProductMajorPart;
 
         /// <inheritdoc />
-        public int ProductMinorPart => _inner.ProductMinorPart;
+        public int ProductMinorPart => inner.ProductMinorPart;
 
         /// <inheritdoc />
-        public string ProductName => _inner.ProductName;
+        public string ProductName => inner.ProductName;
 
         /// <inheritdoc />
-        public int ProductPrivatePart => _inner.ProductPrivatePart;
+        public int ProductPrivatePart => inner.ProductPrivatePart;
 
         /// <inheritdoc />
-        public string ProductVersion => _inner.ProductVersion;
+        public string ProductVersion => inner.ProductVersion;
 
         /// <inheritdoc />
-        public string SpecialBuild => _inner.SpecialBuild;
+        public string SpecialBuild => inner.SpecialBuild;
     }
 }
