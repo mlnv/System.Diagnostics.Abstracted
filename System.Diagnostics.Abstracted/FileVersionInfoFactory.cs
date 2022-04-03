@@ -5,7 +5,7 @@
         /// <inheritdoc />
         public IFileVersionInfo GetVersionInfo(string path)
         {
-            return new FileVersionInfoWrapper(System.Diagnostics.FileVersionInfo.GetVersionInfo(path));
+            return new FileVersionInfoWrapper(FileVersionInfo.GetVersionInfo(path));
         }
     }
 }
