@@ -20,7 +20,7 @@ namespace System.Diagnostics.Abstracted.IntegrationTests
         [Fact]
         private void ApiParity_Process_ApiIsTheSame()
         {
-            Compare(typeof(System.Diagnostics.Process), typeof(Process));
+            Compare(typeof(System.Diagnostics.Process), typeof(ProcessWrapper));
         }
 
         private void Compare(Type originalType, Type typeToCompare)

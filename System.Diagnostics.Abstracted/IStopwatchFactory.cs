@@ -19,6 +19,6 @@
         ///     time property to zero, and starts measuring elapsed time.
         /// </summary>
         /// <returns>A <see cref="T:System.Diagnostics.Abstractions.Stopwatch"></see> that has just begun measuring elapsed time.</returns>
-        Stopwatch StartNew();
+        StopwatchWrapper StartNew();
     }
 }

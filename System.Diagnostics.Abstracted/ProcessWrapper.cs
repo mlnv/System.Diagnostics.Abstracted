@@ -6,11 +6,11 @@ using Microsoft.Win32.SafeHandles;
 
 namespace System.Diagnostics.Abstracted
 {
-    public class Process : IProcess
+    public class ProcessWrapper : IProcess
     {
-        private readonly System.Diagnostics.Process inner;
+        private readonly Process inner;
 
-        public Process(System.Diagnostics.Process inner)
+        public ProcessWrapper(Process inner)
         {
             this.inner = inner;
             this.inner.ErrorDataReceived += OnErrorDataReceived;
@@ -327,7 +327,7 @@ namespace System.Diagnostics.Abstracted
         /// </returns>
         public static IProcess GetCurrentProcess()
         {
-            return new Process(System.Diagnostics.Process.GetCurrentProcess());
+            return new ProcessWrapper(System.Diagnostics.Process.GetCurrentProcess());
         }
 
         /// <summary>
@@ -346,7 +346,7 @@ namespace System.Diagnostics.Abstracted
         /// <exception cref="T:System.InvalidOperationException">The process was not started by this object.</exception>
         public static IProcess GetProcessById(int processId)
         {
-            return new Process(System.Diagnostics.Process.GetProcessById(processId));
+            return new ProcessWrapper(System.Diagnostics.Process.GetProcessById(processId));
         }
 
         /// <summary>
@@ -372,7 +372,7 @@ namespace System.Diagnostics.Abstracted
         /// <exception cref="T:System.InvalidOperationException">The process was not started by this object.</exception>
         public static IProcess GetProcessById(int processId, string machineName)
         {
-            return new Process(System.Diagnostics.Process.GetProcessById(processId, machineName));
+            return new ProcessWrapper(System.Diagnostics.Process.GetProcessById(processId, machineName));
         }
 
         /// <summary>
@@ -385,7 +385,7 @@ namespace System.Diagnostics.Abstracted
         /// </returns>
         public static IProcess[] GetProcesses()
         {
-            return System.Diagnostics.Process.GetProcesses().Select(x => new Process(x)).ToArray<IProcess>();
+            return System.Diagnostics.Process.GetProcesses().Select(x => new ProcessWrapper(x)).ToArray<IProcess>();
         }
 
         /// <summary>
@@ -416,7 +416,7 @@ namespace System.Diagnostics.Abstracted
         /// <exception cref="T:System.ComponentModel.Win32Exception">A problem occurred accessing an underlying system API.</exception>
         public static IProcess[] GetProcesses(string machineName)
         {
-            return System.Diagnostics.Process.GetProcesses(machineName).Select(x => new Process(x)).ToArray<IProcess>();
+            return System.Diagnostics.Process.GetProcesses(machineName).Select(x => new ProcessWrapper(x)).ToArray<IProcess>();
         }
 
         /// <summary>
@@ -434,7 +434,7 @@ namespace System.Diagnostics.Abstracted
         /// </exception>
         public static IProcess[] GetProcessesByName(string processName)
         {
-            return System.Diagnostics.Process.GetProcessesByName(processName).Select(x => new Process(x))
+            return System.Diagnostics.Process.GetProcessesByName(processName).Select(x => new ProcessWrapper(x))
                 .ToArray<IProcess>();
         }
 
@@ -467,7 +467,7 @@ namespace System.Diagnostics.Abstracted
         /// <exception cref="T:System.ComponentModel.Win32Exception">A problem occurred accessing an underlying system API.</exception>
         public static IProcess[] GetProcessesByName(string processName, string machineName)
         {
-            return System.Diagnostics.Process.GetProcessesByName(processName, machineName).Select(x => new Process(x))
+            return System.Diagnostics.Process.GetProcessesByName(processName, machineName).Select(x => new ProcessWrapper(x))
                 .ToArray<IProcess>();
         }
 
@@ -525,7 +525,7 @@ namespace System.Diagnostics.Abstracted
         /// </exception>
         public static IProcess Start(ProcessStartInfo startInfo)
         {
-            return new Process(System.Diagnostics.Process.Start(startInfo));
+            return new ProcessWrapper(System.Diagnostics.Process.Start(startInfo));
         }
 
         /// <summary>
@@ -545,7 +545,7 @@ namespace System.Diagnostics.Abstracted
         /// <exception cref="T:System.IO.FileNotFoundException">The PATH environment variable has a string containing quotes.</exception>
         public static IProcess Start(string fileName)
         {
-            return new Process(System.Diagnostics.Process.Start(fileName));
+            return new ProcessWrapper(System.Diagnostics.Process.Start(fileName));
         }
 
         /// <summary>
@@ -575,7 +575,7 @@ namespace System.Diagnostics.Abstracted
         /// <exception cref="T:System.IO.FileNotFoundException">The PATH environment variable has a string containing quotes.</exception>
         public static IProcess Start(string fileName, string arguments)
         {
-            return new Process(System.Diagnostics.Process.Start(fileName, arguments));
+            return new ProcessWrapper(System.Diagnostics.Process.Start(fileName, arguments));
         }
 
         /// <summary>
@@ -601,7 +601,7 @@ namespace System.Diagnostics.Abstracted
         /// <exception cref="T:System.ObjectDisposedException">The process object has already been disposed.</exception>
         public static IProcess Start(string fileName, string userName, SecureString password, string domain)
         {
-            return new Process(System.Diagnostics.Process.Start(fileName, userName, password, domain));
+            return new ProcessWrapper(System.Diagnostics.Process.Start(fileName, userName, password, domain));
         }
 
         /// <summary>
@@ -635,7 +635,7 @@ namespace System.Diagnostics.Abstracted
         public static IProcess Start(string fileName, string arguments, string userName, SecureString password,
             string domain)
         {
-            return new Process(System.Diagnostics.Process.Start(fileName, arguments, userName, password, domain));
+            return new ProcessWrapper(System.Diagnostics.Process.Start(fileName, arguments, userName, password, domain));
         }
     }
 }

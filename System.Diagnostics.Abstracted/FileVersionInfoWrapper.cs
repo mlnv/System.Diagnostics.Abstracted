@@ -1,11 +1,11 @@
 ﻿namespace System.Diagnostics.Abstracted
 {
-    public class FileVersionInfo : IFileVersionInfo
+    public class FileVersionInfoWrapper : IFileVersionInfo
     {
-        private readonly System.Diagnostics.FileVersionInfo inner;
+        private readonly FileVersionInfo inner;
 
         /// <inheritdoc />
-        protected internal FileVersionInfo(System.Diagnostics.FileVersionInfo inner)
+        protected internal FileVersionInfoWrapper(FileVersionInfo inner)
         {
             this.inner = inner;
         }

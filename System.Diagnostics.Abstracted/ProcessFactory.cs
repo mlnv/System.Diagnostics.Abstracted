@@ -7,85 +7,85 @@ namespace System.Diagnostics.Abstracted
         /// <inheritdoc />
         public void EnterDebugMode()
         {
-            Process.EnterDebugMode();
+            ProcessWrapper.EnterDebugMode();
         }
 
         /// <inheritdoc />
         public IProcess GetCurrentProcess()
         {
-            return Process.GetCurrentProcess();
+            return ProcessWrapper.GetCurrentProcess();
         }
 
         /// <inheritdoc />
         public IProcess GetProcessById(int processId)
         {
-            return Process.GetProcessById(processId);
+            return ProcessWrapper.GetProcessById(processId);
         }
 
         /// <inheritdoc />
         public IProcess GetProcessById(int processId, string machineName)
         {
-            return Process.GetProcessById(processId, machineName);
+            return ProcessWrapper.GetProcessById(processId, machineName);
         }
 
         /// <inheritdoc />
         public IProcess[] GetProcesses()
         {
-            return Process.GetProcesses();
+            return ProcessWrapper.GetProcesses();
         }
 
         /// <inheritdoc />
         public IProcess[] GetProcesses(string machineName)
         {
-            return Process.GetProcesses(machineName);
+            return ProcessWrapper.GetProcesses(machineName);
         }
 
         /// <inheritdoc />
         public IProcess[] GetProcessesByName(string processName)
         {
-            return Process.GetProcessesByName(processName);
+            return ProcessWrapper.GetProcessesByName(processName);
         }
 
         /// <inheritdoc />
         public IProcess[] GetProcessesByName(string processName, string machineName)
         {
-            return Process.GetProcessesByName(processName, machineName);
+            return ProcessWrapper.GetProcessesByName(processName, machineName);
         }
 
         /// <inheritdoc />
         public void LeaveDebugMode()
         {
-            Process.LeaveDebugMode();
+            ProcessWrapper.LeaveDebugMode();
         }
 
         /// <inheritdoc />
         public IProcess Start(ProcessStartInfo startInfo)
         {
-            return Process.Start(startInfo);
+            return ProcessWrapper.Start(startInfo);
         }
 
         /// <inheritdoc />
         public IProcess Start(string fileName)
         {
-            return Process.Start(fileName);
+            return ProcessWrapper.Start(fileName);
         }
 
         /// <inheritdoc />
         public IProcess Start(string fileName, string arguments)
         {
-            return Process.Start(fileName, arguments);
+            return ProcessWrapper.Start(fileName, arguments);
         }
 
         /// <inheritdoc />
         public IProcess Start(string fileName, string userName, SecureString password, string domain)
         {
-            return Process.Start(fileName, userName, password, domain);
+            return ProcessWrapper.Start(fileName, userName, password, domain);
         }
 
         /// <inheritdoc />
         public IProcess Start(string fileName, string arguments, string userName, SecureString password, string domain)
         {
-            return Process.Start(fileName, arguments, userName, password, domain);
+            return ProcessWrapper.Start(fileName, arguments, userName, password, domain);
         }
     }
 }

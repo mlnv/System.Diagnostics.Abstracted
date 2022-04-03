@@ -15,10 +15,10 @@
         public bool IsHighResolution => System.Diagnostics.Stopwatch.IsHighResolution;
 
         /// <inheritdoc />
-        public Stopwatch StartNew()
+        public StopwatchWrapper StartNew()
         {
             var diagnosticsSw = System.Diagnostics.Stopwatch.StartNew();
-            return new Stopwatch(diagnosticsSw);
+            return new StopwatchWrapper(diagnosticsSw);
         }
     }
 }

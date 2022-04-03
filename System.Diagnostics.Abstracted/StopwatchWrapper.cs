@@ -1,21 +1,21 @@
 ﻿namespace System.Diagnostics.Abstracted
 {
-    public class Stopwatch : IStopwatch
+    public class StopwatchWrapper : IStopwatch
     {
-        private readonly System.Diagnostics.Stopwatch inner;
+        private readonly Stopwatch inner;
 
-        public Stopwatch() : this(new System.Diagnostics.Stopwatch())
+        public StopwatchWrapper() : this(new Stopwatch())
         {
         }
 
-        protected internal Stopwatch(System.Diagnostics.Stopwatch inner)
+        protected internal StopwatchWrapper(Stopwatch inner)
         {
             this.inner = inner;
         }
 
-        public static long Frequency => System.Diagnostics.Stopwatch.Frequency;
+        public static long Frequency => Stopwatch.Frequency;
 
-        public static bool IsHighResolution => System.Diagnostics.Stopwatch.IsHighResolution;
+        public static bool IsHighResolution => Stopwatch.IsHighResolution;
 
         public TimeSpan Elapsed => inner.Elapsed;
         public long ElapsedMilliseconds => inner.ElapsedMilliseconds;
@@ -44,13 +44,13 @@
 
         public static long GetTimestamp()
         {
-            return System.Diagnostics.Stopwatch.GetTimestamp();
+            return Stopwatch.GetTimestamp();
         }
 
-        public static Stopwatch StartNew()
+        public static StopwatchWrapper StartNew()
         {
-            var diagnosticsSw = System.Diagnostics.Stopwatch.StartNew();
-            return new Stopwatch(diagnosticsSw);
+            var diagnosticsSw = Stopwatch.StartNew();
+            return new StopwatchWrapper(diagnosticsSw);
         }
     }
 }
