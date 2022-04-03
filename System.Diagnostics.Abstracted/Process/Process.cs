@@ -152,10 +152,9 @@ namespace System.Diagnostics.Abstracted
         /// <inheritdoc />
         public bool Responding => inner.Responding;
 
-#if NETSTANDARD2_0
         /// <inheritdoc />
         public SafeProcessHandle SafeHandle => inner.SafeHandle;
-#endif
+
         /// <inheritdoc />
         public int SessionId => inner.SessionId;
 
