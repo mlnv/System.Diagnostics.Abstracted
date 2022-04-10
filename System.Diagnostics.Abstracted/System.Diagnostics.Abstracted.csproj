@@ -18,6 +18,9 @@
     <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
     </ItemGroup>
     <ItemGroup>
+      <None Remove="IProcess.cs~RF144ecf8.TMP" />
+    </ItemGroup>
+    <ItemGroup>
       <Folder Include="Properties\" />
     </ItemGroup>
 </Project>

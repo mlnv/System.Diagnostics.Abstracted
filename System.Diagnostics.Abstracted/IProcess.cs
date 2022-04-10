@@ -817,6 +817,11 @@ namespace System.Diagnostics.Abstracted
         event DataReceivedEventHandler OutputDataReceived;
 
         /// <summary>
+        /// Occurs when the component is disposed by a call to the Dispose() method.
+        /// </summary>
+        event EventHandler Disposed;
+
+        /// <summary>
         ///     Begins asynchronous read operations on the redirected
         ///     <see cref="P:System.Diagnostics.Process.StandardError"></see> stream of the application.
         /// </summary>

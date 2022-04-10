@@ -16,6 +16,7 @@ namespace System.Diagnostics.Abstracted
             this.inner.ErrorDataReceived += OnErrorDataReceived;
             this.inner.Exited += OnExited;
             this.inner.OutputDataReceived += OnOutputDataReceived;
+            this.inner.Disposed += OnDisposed;
         }
 
         /// <inheritdoc />
@@ -214,6 +215,9 @@ namespace System.Diagnostics.Abstracted
         /// <inheritdoc />
         public event DataReceivedEventHandler OutputDataReceived;
 
+        /// <inheritdoc />
+        public event EventHandler Disposed;
+
         protected void OnErrorDataReceived(object sender, DataReceivedEventArgs args)
         {
             ErrorDataReceived?.Invoke(sender, args);
@@ -305,6 +309,12 @@ namespace System.Diagnostics.Abstracted
         public bool WaitForInputIdle(int milliseconds)
         {
             return inner.WaitForInputIdle(milliseconds);
+        }
+
+        /// <inheritdoc />
+        private void OnDisposed(object sender, EventArgs args)
+        {
+            Disposed?.Invoke(sender, args);
         }
 
         /// <summary>
